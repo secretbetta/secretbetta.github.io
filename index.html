@@ -1,69 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-<script>
-function validateForm() {
-    var fname = document.forms["myForm"]["fname"].value;
-    var lname = document.forms["myForm"]["lname"].value;
-    var email = document.forms["myForm"]["email"].value;
-    var bs = document.forms["myForm"]["bs"].checked;
-    var ms = document.forms["myForm"]["ms"].checked;
-    var classes = document.forms["myForm"]["classes"].value;
-    var expectations = document.forms["myForm"]["expectations"].value;
-    
-    if (fname == "" || lname == "") {
-      alert("Missing Elements in name");
-      return false;
-    }
-    
-    if (email == "") {
-      alert("Missing Elements in email");
-      return false;
-    }
-    
-    if (classes == "") {
-      alert("Missing Elements in classes taken");
-      return false;
-    }
-    
-    if (expectations == "") {
-      alert("Missing Elements in class expectations");
-      return false;
-    }
-
-    if (!bs && !ms) {
-      alert("College level is required. Please select one.");
-      return false;
-    }
-  }
-</script>
-</head>
-<body>
-
-<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-  <label for="fname">First Name:</label> 
-  <input name="fname" type="input" /><br /><br />
-  <label for="lname">Last Name:</label> 
-  <input name="lname" type="input" /><br /><br /> 
-
-  <label for="email">Email:</label> 
-  <input name="email" type="input" /><br /><br /> 
-
-  <label for="level">College Level:</label>
-  <input type="radio" id="bs" name="gender" value="bs">
-  <label for="bs">BS</label>
-  <input type="radio" id="ms" name="gender" value="ms">
-  <label for="ms">MS</label><br><br>
-
-  <label for="classes">Classes Taken:</label> 
-  <input name="classes" type="input" /><br /><br /> 
-
-  <label for="expectations">Class Expectations:</label> 
-  <input name="expectations" type="text" /><br /><br /> 
-  <input type="submit" value="Submit">
-</form>
-
-</body>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | SlimeGame</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/SlimeGameWebGL.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">SlimeGame</div>
+      </div>
+    </div>
+  </body>
 </html>
-
-<!-- mongodb+srv://new-user:<password>@secretbettafirst.3ynan.mongodb.net/<dbname>?retryWrites=true&w=majority -->
